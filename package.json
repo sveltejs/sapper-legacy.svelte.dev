@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "sapper.svelte.technology",
+  "description": "The Sapper website",
   "version": "0.0.1",
   "scripts": {
     "dev": "node server.js",
@@ -8,7 +8,9 @@
     "start": "cross-env NODE_ENV=production node server.js",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "stage": "now",
+    "deploy": "git-branch-is master && npm run stage && now alias"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -28,5 +30,18 @@
     "svelte-loader": "^2.3.1",
     "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.10.0"
+  },
+  "now": {
+    "alias": "sapper.svelte.technology",
+    "files": [
+      ".sapper",
+      "assets",
+      "content",
+      "routes",
+      "templates",
+      "webpack.client.config.js",
+      "webpack.server.config.js",
+      "server.js"
+    ]
   }
 }
