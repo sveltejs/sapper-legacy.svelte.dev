@@ -2,9 +2,7 @@
 title: Runtime API
 ---
 
-The `sapper/runtime/app.js` module contains functions for controlling your app and responding to events.
-
-Currently only one function, `init`, is exposed. Others will be added in future versions.
+The `sapper/runtime/app.js` module contains functions for controlling your app and responding to events. More functions will be added in future versions.
 
 
 ### init(selector, routes)
@@ -18,3 +16,11 @@ This configures the router and starts the application — listens for clicks on
 import { init } from 'sapper/runtime/app.js';
 init('#sapper', __routes__);
 ```
+
+
+### goto(href, [options])
+
+* `href` — the page to go to
+* `options` — can include a `replaceState` property, which determines whether to use `history.pushState` (the default) or `history.replaceState`). Not required
+
+Programmatically navigates to the given `href`. If the destination is a Sapper route, Sapper will handle the navigation, otherwise the page will be reloaded with the new `href`. (In other words, the behaviour is as though the user clicked on a link with this `href`.)
