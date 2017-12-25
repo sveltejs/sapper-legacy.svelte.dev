@@ -183,6 +183,26 @@
 			Layout
 		},
 
-		store: () => store
+		store: () => store,
+
+		oncreate() {
+			if ('caches' in window) {
+				// cache the guide, so we can navigate instantly
+				// and use it offline
+				caches.keys()
+					.then(keys => {
+						// find the offline cache
+						const key = keys.filter(k => k.startsWith('offline'));
+						return caches.open(key);
+					})
+					.then(cache => {
+						// see if we already have it — if not, fetch
+						cache.match('/api/guide').then(match => {
+							console.log('adding?', !match);
+							if (!match) cache.add('/api/guide');
+						});
+					});
+			}
+		}
 	};
 </script>
