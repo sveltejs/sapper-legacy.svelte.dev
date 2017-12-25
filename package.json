@@ -43,5 +43,8 @@
       "webpack.server.config.js",
       "server.js"
     ]
+  },
+  "devDependencies": {
+    "git-branch-is": "^0.1.0"
   }
 }
