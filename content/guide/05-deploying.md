@@ -5,7 +5,7 @@ title: Deployment
 Sapper apps run anywhere that supports Node 8 or higher.
 
 
-### Deploying to Node
+### Deploying to Now
 
 We can very easily deploy our apps to [Now](https://zeit.co/now):
 
