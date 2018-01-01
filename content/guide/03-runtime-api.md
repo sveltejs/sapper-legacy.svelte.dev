@@ -2,7 +2,7 @@
 title: Runtime API
 ---
 
-The `sapper/runtime/app.js` module contains functions for controlling your app and responding to events. More functions will be added in future versions.
+The `sapper/runtime.js` module contains functions for controlling your app and responding to events. More functions will be added in future versions.
 
 
 ### init(selector, routes)
@@ -13,7 +13,7 @@ The `sapper/runtime/app.js` module contains functions for controlling your app a
 This configures the router and starts the application — listens for clicks on `<a>` elements, interacts with the `history` API, and renders and updates your Svelte components.
 
 ```js
-import { init } from 'sapper/runtime/app.js';
+import { init } from 'sapper/runtime.js';
 init('#sapper', __routes__);
 ```
 
