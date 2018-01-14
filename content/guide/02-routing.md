@@ -68,6 +68,8 @@ export async function get(req, res, next) {
 }
 ```
 
+> `delete` is a reserved word in JavaScript. To handle DELETE requests, export a function called `del` instead.
+
 There are three simple rules for naming the files that define your routes:
 
 * A file called `routes/about.html` corresponds to the `/about` route. A file called `routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
