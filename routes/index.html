@@ -198,7 +198,6 @@
 					.then(cache => {
 						// see if we already have it — if not, fetch
 						cache.match('/api/guide').then(match => {
-							console.log('adding?', !match);
 							if (!match) cache.add('/api/guide');
 						});
 					});
