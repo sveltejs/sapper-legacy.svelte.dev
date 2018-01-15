@@ -4,14 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "node server.js",
-    "build": "sapper build",
     "start": "cross-env NODE_ENV=production node server.js",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "stage": "now",
-    "deploy": "git-branch-is master && npm run stage && now alias",
-    "export": "sapper export"
+    "stage": "now dist",
+    "prestage": "npm run build",
+    "build": "sapper export",
+    "deploy": "git-branch-is master && npm run stage && now alias"
   },
   "dependencies": {
     "compression": "^1.7.1",
