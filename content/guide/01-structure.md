@@ -77,7 +77,7 @@ Each file will contain placeholder tags, like `%sapper.html%`, which Sapper will
 * `%sapper.styles%` — critical CSS for the page being requested
 * `%sapper.head%` — HTML representing page-specific `<head>` contents, like `<title>`
 * `%sapper.html%` — HTML representing the body of the page being rendered
-* `%sapper.main%` — the URL of the client-side app
+* `%sapper.scripts%` — the URL of the client-side app
 
 For 4xx responses:
 
@@ -85,7 +85,7 @@ For 4xx responses:
 * `%sapper.title%` — the name of the error
 * `%sapper.method%` — the HTTP method, e.g. GET or POST
 * `%sapper.url%` — the requested URL
-* `%sapper.main%` — the URL of the client-side app
+* `%sapper.scripts%` — the URL of the client-side app
 
 For 5xx responses:
 
