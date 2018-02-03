@@ -12,9 +12,13 @@ The `sapper/runtime.js` module contains functions for controlling your app and r
 
 This configures the router and starts the application — listens for clicks on `<a>` elements, interacts with the `history` API, and renders and updates your Svelte components.
 
+Returns a `Promise` that resolves when the initial page has been hydrated.
+
 ```js
 import { init } from 'sapper/runtime.js';
-init('#sapper', __routes__);
+init('#sapper', __routes__).then(() => {
+	console.log('client-side app has started');
+});
 ```
 
 
