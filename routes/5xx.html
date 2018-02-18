@@ -1,0 +1,25 @@
+<:Head>
+	<title>Sapper • Military-grade progressive web apps, powered by Svelte</title>
+</:Head>
+
+<Layout>
+	<h1>Internal server error</h1>
+	<p>{{error.message}}</p>
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+	import Layout from './_components/Layout.html';
+	import store from './_store.js';
+
+	export default {
+		components: {
+			Layout
+		},
+
+		store: () => store
+	};
+</script>
