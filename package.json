@@ -3,8 +3,8 @@
   "description": "The Sapper website",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node server.js",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "dev": "sapper dev",
+    "start": "serve dist",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
@@ -25,6 +25,7 @@
     "node-fetch": "^1.7.3",
     "npm-run-all": "^4.1.2",
     "sapper": "^0.6.3",
+    "serve": "^6.4.10",
     "serve-static": "^1.13.1",
     "style-loader": "^0.19.0",
     "svelte": "^1.49.3",

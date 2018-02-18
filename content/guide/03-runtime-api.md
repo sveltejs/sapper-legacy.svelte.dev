@@ -16,7 +16,9 @@ Returns a `Promise` that resolves when the initial page has been hydrated.
 
 ```js
 import { init } from 'sapper/runtime.js';
-init('#sapper', __routes__).then(() => {
+import { routes } from './manifest/client.js';
+
+init('#sapper', routes).then(() => {
 	console.log('client-side app has started');
 });
 ```
