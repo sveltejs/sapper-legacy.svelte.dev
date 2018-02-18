@@ -1,4 +1,4 @@
-import { timestamp, assets, shell, routes } from './manifest/routes.js';
+import { timestamp, assets, shell, routes } from './manifest/service-worker.js';
 
 const asset_cache = `cache${timestamp}`;
 

@@ -5,9 +5,3 @@ export const routes = [
 	{ error: '5xx', load: () => import(/* webpackChunkName: "_5xx" */ '../../routes/5xx.html') },
 	{ pattern: /^\/guide\/?$/, params: () => ({}), load: () => import(/* webpackChunkName: "guide" */ '../../routes/guide/index.html') }
 ];
-
-if (module.hot) {
-	import('/Users/208311/Development/SVELTE/sapper/src/hmr-client.js').then(client => {
-		client.connect(10000);
-	});
-}
