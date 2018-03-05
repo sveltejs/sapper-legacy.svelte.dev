@@ -83,3 +83,14 @@ There are three simple rules for naming the files that define your routes:
 Suppose you have a route called `/settings` and a series of subroutes such as `/settings/profile` and `/settings/notifications`.
 
 You could do this with two separate pages — `routes/settings.html` (or `routes/settings/index.html`) and `routes/settings/[submenu].html`, but it's likely that they'll share a lot of code. If there's no `routes/settings.html` file, then `routes/settings/[submenu].html` will match `/settings` as well as subroutes like `/settings/profile`, but the value of `params.submenu` will be `undefined` in the first case.
+
+
+
+### Error pages
+
+In addition to regular pages, there are two 'special' pages — `routes/4xx.html` and `routes/5xx.html`. These will be shown when an error occurs while rendering a page.
+
+The `error` object is made available to the template.
+
+* **4xx.html** is shown when an error is encountered with an HTTP status code [between 400 and 499](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors), such as 404 Not Found
+* **5xx.html** is shown for [all other errors](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_errors). In practice, this means 500 Internal Server Error.
