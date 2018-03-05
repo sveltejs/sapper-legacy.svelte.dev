@@ -91,7 +91,7 @@ This file is a template for responses from the server. Sapper will inject conten
 * `%sapper.styles%` — critical CSS for the page being requested
 * `%sapper.head%` — HTML representing page-specific `<head>` contents, like `<title>`
 * `%sapper.html%` — HTML representing the body of the page being rendered
-* `%sapper.main%` — the URL of the client-side app
+* `%sapper.scripts%` — script tags for the client-side app
 
 
 ### assets
