@@ -54,7 +54,7 @@ import db from './_database.js'; // the underscore tells Sapper this isn't a rou
 
 export async function get(req, res, next) {
 	// the `slug` parameter is available because this file
-	// is called [slug].js
+	// is called [slug].json.js
 	const { slug } = req.params;
 
 	const post = await db.get(slug);
