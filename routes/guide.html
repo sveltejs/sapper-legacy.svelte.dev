@@ -210,9 +210,9 @@
 </style>
 
 <script>
-	import store from '../_store.js';
-	import GuideContents from '../_components/GuideContents.html';
-	import Layout from '../_components/Layout.html';
+	import store from './_store.js';
+	import GuideContents from './_components/GuideContents.html';
+	import Layout from './_components/Layout.html';
 
 	function throttle(fn, ms) {
 		let blocked = false;
@@ -236,7 +236,7 @@
 		},
 
 		preload() {
-			return fetch(`/api/guide`).then(r => r.json()).then(sections => {
+			return fetch(`/guide.json`).then(r => r.json()).then(sections => {
 				return { sections };
 			});
 		},

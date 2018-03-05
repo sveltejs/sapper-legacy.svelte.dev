@@ -37,3 +37,11 @@ Programmatically navigates to the given `href`. If the destination is a Sapper r
 * `href` — the page to prefetch
 
 Programmatically prefetches the given page, which means a) ensuring that the code for the page is loaded, and b) calling the page's `preload` method with the appropriate options. This is the same behaviour that Sapper triggers when the user taps or mouses over an `<a>` element with [rel=prefetch](#prefetching).
+
+
+
+### prefetchRoutes([routes])
+
+* `routes` — an optional array of strings representing routes to prefetch
+
+Programmatically prefetches the code for routes that haven't yet been fetched. Typically, you might call this after `init` is complete, to speed up subsequent navigation. Omitting arguments will cause all routes to be fetched, or you can specify routes by any matching pathname such as `/about` (to match `routes/about.html`) or `/blog/*` (to match `routes/blog/[slug].html`). Unlike `prefetch`, this won't call `preload` for individual pages.

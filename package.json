@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "start": "serve dist",
+    "start": "serve export",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "stage": "now dist",
+    "stage": "now export",
     "prestage": "npm run build",
     "build": "sapper export",
     "deploy": "git-branch-is master && npm run stage && now alias"
@@ -16,35 +16,21 @@
   "dependencies": {
     "compression": "^1.7.1",
     "cross-env": "^5.1.1",
-    "css-loader": "^0.28.7",
     "express": "^4.16.2",
-    "extract-text-webpack-plugin": "^3.0.2",
     "glob": "^7.1.2",
     "highlight.js": "^9.12.0",
     "marked": "^0.3.7",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.0.0",
     "npm-run-all": "^4.1.2",
-    "sapper": "^0.6.3",
+    "sapper": "^0.8.2",
     "serve": "^6.4.10",
     "serve-static": "^1.13.1",
-    "style-loader": "^0.19.0",
-    "svelte": "^1.49.3",
+    "svelte": "^1.56.0",
     "svelte-loader": "^2.3.1",
-    "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^3.10.0"
+    "webpack": "^4.1.0"
   },
   "now": {
-    "alias": "sapper.svelte.technology",
-    "files": [
-      ".sapper",
-      "assets",
-      "content",
-      "routes",
-      "templates",
-      "webpack.client.config.js",
-      "webpack.server.config.js",
-      "server.js"
-    ]
+    "alias": "sapper.svelte.technology"
   },
   "devDependencies": {
     "git-branch-is": "^0.1.0"
