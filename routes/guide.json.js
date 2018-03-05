@@ -1,4 +1,4 @@
-import sections from './_guide-sections.js';
+import sections from './_guide/sections.js';
 
 const json = JSON.stringify(sections);
 
