@@ -1,13 +1,14 @@
 const config = require('sapper/webpack/config.js');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+const mode = process.env.NODE_ENV;
+const dev = mode === 'development';
 
 module.exports = {
 	entry: config.client.entry(),
 	output: config.client.output(),
 	resolve: {
-		extensions: ['.js', '.html']
+		extensions: ['.js', '.json', '.html']
 	},
 	module: {
 		rules: [
@@ -18,33 +19,17 @@ module.exports = {
 					loader: 'svelte-loader',
 					options: {
 						hydratable: true,
-						emitCss: !config.dev,
 						cascade: false,
-						store: true
+						store: true,
+						hotReload: true
 					}
 				}
-			},
-			config.dev && {
-				test: /\.css$/,
-				use: [
-					{ loader: "style-loader" },
-					{ loader: "css-loader" }
-				]
-			},
-			!config.dev && {
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [{ loader: 'css-loader', options: { sourceMap: config.dev } }]
-				})
 			}
-		].filter(Boolean)
+		]
 	},
+	mode,
 	plugins: [
-		config.dev && new webpack.HotModuleReplacementPlugin(),
-		!config.dev && new ExtractTextPlugin('main.css'),
-		!config.dev && new webpack.optimize.ModuleConcatenationPlugin(),
-		!config.dev && new UglifyJSPlugin()
+		dev && new webpack.HotModuleReplacementPlugin()
 	].filter(Boolean),
-	devtool: config.dev ? 'inline-source-map' : false
+	devtool: dev ? 'inline-source-map' : false
 };
