@@ -7,7 +7,7 @@ As we've seen, there are two types of route in Sapper — pages, and server rout
 
 ### Pages
 
-Pages are Svelte components written in `.html` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel. (Sapper will preload and cache the code for these subsequent pages, so that navigation is instantaneous.)
+Pages are Svelte components written in `.html` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel.
 
 For example, here's how you could create a page that renders a blog post:
 
@@ -25,15 +25,15 @@ For example, here's how you could create a page that renders a blog post:
 
 <script>
 	export default {
-		// the preload function takes a `{ params, query }`
-		// object and turns it into the data we need to
-		// render the page
+		// the (optional) preload function takes a
+		// `{ params, query }` object and turns it into
+		// the data we need to render the page
 		preload({ params, query }) {
 			// the `slug` parameter is available because this file
 			// is called [slug].html
 			const { slug } = params;
 
-			return fetch(`/api/blog/${slug}`).then(r => r.json()).then(post => {
+			return fetch(`/blog/${slug}.json`).then(r => r.json()).then(post => {
 				return { post };
 			});
 		}
@@ -41,7 +41,7 @@ For example, here's how you could create a page that renders a blog post:
 </script>
 ```
 
-> When rendering pages on the server, the `preload` function receives the entire `request` object, which happens to include `params` and `query` properties. This allows you to use [session middleware](https://github.com/expressjs/session) (for example). On the client, only `params` and `query` are provided.
+> When rendering pages on the server, the `preload` function receives the entire `request` object, which happens to include `params` and `query` properties. This allows you to use [session middleware](https://github.com/expressjs/session) (for example). On the client, only `params` and `query` are provided. See the section on [preloading](#preloading) for more info.
 
 
 ### Server routes
@@ -49,7 +49,7 @@ For example, here's how you could create a page that renders a blog post:
 Server routes are modules written in `.js` files that export functions corresponding to HTTP methods. Each function receives Express `request` and `response` objects as arguments, plus a `next` function. This is useful for creating a JSON API. For example, here's how you could create an endpoint that served the blog page above:
 
 ```js
-// routes/api/blog/[slug].js
+// routes/blog/[slug].json.js
 import db from './_database.js'; // the underscore tells Sapper this isn't a route
 
 export async function get(req, res, next) {

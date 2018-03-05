@@ -20,10 +20,10 @@ Inside your Sapper project, try this:
 npx sapper export
 ```
 
-This will create a `dist` folder with a production-ready build of your site. You can launch it like so:
+This will create an `export` folder with a production-ready build of your site. You can launch it like so:
 
 ```bash
-npx serve dist
+npx serve export
 ```
 
 Navigate to [localhost:5000](http://localhost:5000) (or whatever port `serve` picked), and verify that your site works as expected.
@@ -46,13 +46,13 @@ You can also add a script to your package.json...
 
 The basic rule is this: for an app to be exportable, any two users hitting the same page of your app must get the same content from the server. In other words, any app that involves user sessions or authentication is *not* a candidate for `sapper export`.
 
-Note that you can still export apps with dynamic routes, like our `routes/blog/[slug].html` example from earlier. `sapper export` will intercept `fetch` requests made inside `preload`, so the data served from `routes/api/blog/[slug].js` will also be captured.
+Note that you can still export apps with dynamic routes, like our `routes/blog/[slug].html` example from earlier. `sapper export` will intercept `fetch` requests made inside `preload`, so the data served from `routes/blog/[slug].json.js` will also be captured.
 
 
 ### Route conflicts
 
-Because `sapper export` writes to the filesystem, it isn't possible to have two server routes that would cause a directory and a file to have the same name. For example, `routes/api/blog/index.js` and `routes/api/blog/[slug].js` would try to create `dist/blog` and `dist/blog/some-slug`, which is impossible.
+Because `sapper export` writes to the filesystem, it isn't possible to have two server routes that would cause a directory and a file to have the same name. For example, `routes/foo/index.js` and `routes/foo/bar.js` would try to create `export/foo` and `export/foo/bar`, which is impossible.
 
-The solution is to rename one of the routes to avoid conflict — for example, `routes/api/blog-index.js`. (Note that you would also need to update any code that fetches data from `/api/blog` to reference `/api/blog-index` instead.)
+The solution is to rename one of the routes to avoid conflict — for example, `routes/foo-bar.js`. (Note that you would also need to update any code that fetches data from `/foo/bar` to reference `/foo-bar` instead.)
 
-For *pages*, we skirt around this problem by writing `dist/foo/index.html` instead of `dist/foo`.
+For *pages*, we skirt around this problem by writing `export/foo/index.html` instead of `export/foo`.
