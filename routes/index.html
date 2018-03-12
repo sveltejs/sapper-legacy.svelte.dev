@@ -197,8 +197,8 @@
 					})
 					.then(cache => {
 						// see if we already have it — if not, fetch
-						cache.match('/api/guide').then(match => {
-							if (!match) cache.add('/api/guide');
+						cache.match('/guide.json').then(match => {
+							if (!match) cache.add('/guide.json');
 						});
 					});
 			}
