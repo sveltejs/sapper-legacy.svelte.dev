@@ -8,4 +8,7 @@ env:
 install:
   - npm install
   - npm install cypress
-
+branches:
+  only:
+  - master
+script: npm run deploy:ci

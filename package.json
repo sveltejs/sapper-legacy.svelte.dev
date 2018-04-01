@@ -11,7 +11,9 @@
     "stage": "now export",
     "prestage": "npm run build",
     "build": "sapper export",
-    "deploy": "git-branch-is master && npm run stage && now alias"
+    "deploy": "git-branch-is master && npm run stage && now alias",
+    "deploy:ci": "now export --token $NOW_TOKEN && now alias --token $NOW_TOKEN",
+    "predeploy:ci": "sapper export"
   },
   "dependencies": {
     "compression": "^1.7.1",

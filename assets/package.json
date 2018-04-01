@@ -1,0 +1,9 @@
+{
+  "name": "sapper.svelte.technology",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "latest"
+  }
+}
