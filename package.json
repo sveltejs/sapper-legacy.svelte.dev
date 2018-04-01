@@ -35,6 +35,7 @@
     "alias": "sapper.svelte.technology"
   },
   "devDependencies": {
-    "git-branch-is": "^0.1.0"
+    "git-branch-is": "^0.1.0",
+    "now": "^10.2.2"
   }
 }

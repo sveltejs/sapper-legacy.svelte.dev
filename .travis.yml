@@ -7,7 +7,6 @@ env:
     - BUILD_TIMEOUT=10000
 install:
   - npm install
-  - npm install cypress
 branches:
   only:
   - master
