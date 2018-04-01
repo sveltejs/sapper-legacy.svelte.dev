@@ -2,12 +2,12 @@
 
 <div class='container'>
 	<span class="menu-link" on:click='toggleOpen()'>{{open ? 'Close' : 'Menu'}}</span>
-	<a href='/' class='logo'>Sapper</a>
+	<a href='.' class='logo'>Sapper</a>
 </div>
 
 <nav ref:nav class='{{open ? "open": "closed"}}' on:click='set({ open: false })'>
 	<ul class='primary'>
-		<li><a rel='prefetch' class='{{page === "guide" ? "active": ""}}' href='/guide'>Guide</a></li>
+		<li><a rel='prefetch' class='{{page === "guide" ? "active": ""}}' href='guide'>Guide</a></li>
 		<li><a href='https://gitter.im/sveltejs/svelte'>Chat</a></li>
 		<li><a href='https://svelte.technology'>Svelte</a></li>
 		<li><a href='https://github.com/sveltejs/sapper'>GitHub</a></li>

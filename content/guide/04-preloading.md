@@ -10,7 +10,7 @@ As seen in the [routing](#routing) section, top-level page components can have a
 		preload({ params, query }) {
 			const { slug } = params;
 
-			return fetch(`/blog/${slug}.json`).then(r => r.json()).then(post => {
+			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(post => {
 				return { post };
 			});
 		}
@@ -78,7 +78,7 @@ If the user navigated to `/blog/some-invalid-slug`, we would want to render a 40
 		preload({ params, query }) {
 			const { slug } = params;
 
-			return fetch(`/blog/${slug}.json`).then(r => {
+			return this.fetch(`blog/${slug}.json`).then(r => {
 				// assume all responses are either 200 or 404
 				if (r.status === 200) {
 					return r.json().then(post => {
@@ -111,7 +111,7 @@ You can abort rendering and redirect to a different location with `this.redirect
 			const user = session ? session.user : auth.user;
 
 			if (!user) {
-				return this.redirect(302, '/login');
+				return this.redirect(302, 'login');
 			}
 
 			return {
