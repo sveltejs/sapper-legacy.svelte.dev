@@ -33,7 +33,7 @@ For example, here's how you could create a page that renders a blog post:
 			// is called [slug].html
 			const { slug } = params;
 
-			return fetch(`/blog/${slug}.json`).then(r => r.json()).then(post => {
+			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(post => {
 				return { post };
 			});
 		}
