@@ -72,3 +72,15 @@ Your webpack configs now live in a `webpack` directory:
 * `webpack.server.config.js` is now `webpack/server.config.js`
 
 If you have a service worker, you should also have a `webpack/service-worker.config.js` file. See [sapper-template](https://github.com/sveltejs/sapper-template) for an example.
+
+
+### <0.9 to 0.10
+
+#### app/template.html
+
+* Your `<head>` element must contain `%sapper.base%` (see ([base URLs](guide#base-urls))
+* Remove references to your service worker; this is now handled by `%sapper.scripts%`
+
+#### Pages
+
+* Your `preload` functions should now use `this.fetch` instead of `fetch`. `this.fetch` allows you to make credentialled requests on the server, and means that you no longer need to create a `global.fetch` object in `app/server.js`.
