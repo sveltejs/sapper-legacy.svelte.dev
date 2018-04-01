@@ -9,7 +9,30 @@ As we've seen, there are two types of route in Sapper — pages, and server rout
 
 Pages are Svelte components written in `.html` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel.
 
-For example, here's how you could create a page that renders a blog post:
+The filename determines the route. For example, `routes/index.html` is the root of your site:
+
+```html
+<!-- routes/index.html -->
+<:Head>
+	<title>Welcome</title>
+</:Head>
+
+<h1>Hello and welcome to my site!</h1>
+```
+
+A file called either `routes/about.html` or `routes/about/index.html` would correspond to the `/about` route:
+
+```html
+<!-- routes/about.html -->
+<:Head>
+	<title>About</title>
+</:Head>
+
+<h1>About this site</h1>
+<p>TODO...</p>
+```
+
+Dynamic parameters are encoded using `[brackets]`. For example, here's how you could create a page that renders a blog post:
 
 ```html
 <!-- routes/blog/[slug].html -->
@@ -41,7 +64,7 @@ For example, here's how you could create a page that renders a blog post:
 </script>
 ```
 
-> When rendering pages on the server, the `preload` function receives the entire `request` object, which happens to include `params` and `query` properties. This allows you to use [session middleware](https://github.com/expressjs/session) (for example). On the client, only `params` and `query` are provided. See the section on [preloading](guide#preloading) for more info.
+> See the section on [preloading](guide#preloading) for more info about `preload` and `this.fetch`
 
 
 ### Server routes
@@ -72,7 +95,7 @@ export async function get(req, res, next) {
 
 There are three simple rules for naming the files that define your routes:
 
-* A file called `routes/about.html` corresponds to the `/about` route. A file called `routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
+* A file called `routes/about.html` corresponds to the `/about` route. A file called `routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to `preload`
 * The file `routes/index.html` (or `routes/index.js`) corresponds to the root of your app. `routes/about/index.html` is treated the same as `routes/about.html`.
 * Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
 
