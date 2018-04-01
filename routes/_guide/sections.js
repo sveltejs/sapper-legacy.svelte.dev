@@ -76,6 +76,7 @@ export default fs
 			html,
 			metadata,
 			subsections,
-			slug: file.replace(/^\d+-/, '').replace(/\.md$/, '')
+			slug: file.replace(/^\d+-/, '').replace(/\.md$/, ''),
+			file
 		};
 	});
