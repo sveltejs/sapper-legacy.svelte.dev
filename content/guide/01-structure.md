@@ -27,9 +27,9 @@ If you take a look inside the [sapper-template](https://github.com/sveltejs/sapp
 │ └ service-worker.config.js
 ```
 
-You'll notice a few extra files and a `cypress` directory which relates to [testing](#testing) — we don't need to worry about those right now.
+You'll notice a few extra files and a `cypress` directory which relates to [testing](guide#testing) — we don't need to worry about those right now.
 
-> You *can* create these files from scratch, but it's much better to use the template. See [getting started](#getting-started) for instructions on how to easily clone it
+> You *can* create these files from scratch, but it's much better to use the template. See [getting started](guide#getting-started) for instructions on how to easily clone it
 
 
 ### package.json
@@ -38,9 +38,9 @@ Your package.json contains your app's dependencies, including `sapper`, and defi
 
 * `npm run dev` — start the app in development mode, and watch source files for changes
 * `npm run build` — build the app in production mode
-* `npm run export` — bake out a static version, if applicable (see [exporting](#exporting))
+* `npm run export` — bake out a static version, if applicable (see [exporting](guide#exporting))
 * `npm start` — start the app in production mode after you've built it
-* `npm test` — run the tests (see [testing](#testing))
+* `npm test` — run the tests (see [testing](guide#testing))
 
 
 ### app
@@ -58,7 +58,7 @@ import { routes } from './manifest/client.js';
 init(document.querySelector('#sapper'), routes);
 ```
 
-In many cases, that's the entirety of your entry module, though you can do as much or as little here as you wish. See the [runtime API](#runtime-api) section for more information on functions you can import.
+In many cases, that's the entirety of your entry module, though you can do as much or as little here as you wish. See the [runtime API](guide#runtime-api) section for more information on functions you can import.
 
 
 #### app/server.js
@@ -90,7 +90,7 @@ Because every app needs a slightly different service worker (sometimes it's appr
 
 This file is a template for responses from the server. Sapper will inject content that replaces the following tags:
 
-* `%sapper.base%` — a `<base>` element (see [base URLs](#base-urls))
+* `%sapper.base%` — a `<base>` element (see [base URLs](guide#base-urls))
 * `%sapper.styles%` — critical CSS for the page being requested
 * `%sapper.head%` — HTML representing page-specific `<head>` contents, like `<title>`
 * `%sapper.html%` — HTML representing the body of the page being rendered
@@ -101,12 +101,12 @@ This file is a template for responses from the server. Sapper will inject conten
 
 This is a place to put any files that your app uses — fonts, images and so on. For example `assets/favicon.png` will be served as `/favicon.png`.
 
-Sapper doesn't serve these assets — you'd typically use [serve-static](https://github.com/expressjs/serve-static) for that — but it will read the contents of the `assets` folder so that you can easily generate a cache manifest for offline support (see [service-worker.js](#templates-service-worker-js)).
+Sapper doesn't serve these assets — you'd typically use [serve-static](https://github.com/expressjs/serve-static) for that — but it will read the contents of the `assets` folder so that you can easily generate a cache manifest for offline support (see [service-worker.js](guide#templates-service-worker-js)).
 
 
 ### routes
 
-This is the meat of your app — the pages and server routes. See the section on [routing](#routing) for the juicy details.
+This is the meat of your app — the pages and server routes. See the section on [routing](guide#routing) for the juicy details.
 
 
 ### webpack

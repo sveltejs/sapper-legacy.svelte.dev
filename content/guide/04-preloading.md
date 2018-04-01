@@ -2,7 +2,7 @@
 title: Preloading
 ---
 
-As seen in the [routing](#routing) section, top-level page components can have a `preload` function that will load some data that the page depends on. This is similar to `getInitialProps` in Next.js or `asyncData` in Nuxt.js.
+As seen in the [routing](guide#routing) section, top-level page components can have a `preload` function that will load some data that the page depends on. This is similar to `getInitialProps` in Next.js or `asyncData` in Nuxt.js.
 
 ```html
 <script>

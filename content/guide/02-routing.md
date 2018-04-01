@@ -41,7 +41,7 @@ For example, here's how you could create a page that renders a blog post:
 </script>
 ```
 
-> When rendering pages on the server, the `preload` function receives the entire `request` object, which happens to include `params` and `query` properties. This allows you to use [session middleware](https://github.com/expressjs/session) (for example). On the client, only `params` and `query` are provided. See the section on [preloading](#preloading) for more info.
+> When rendering pages on the server, the `preload` function receives the entire `request` object, which happens to include `params` and `query` properties. This allows you to use [session middleware](https://github.com/expressjs/session) (for example). On the client, only `params` and `query` are provided. See the section on [preloading](guide#preloading) for more info.
 
 
 ### Server routes
