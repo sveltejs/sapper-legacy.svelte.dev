@@ -13,9 +13,9 @@ The filename determines the route. For example, `routes/index.html` is the root 
 
 ```html
 <!-- routes/index.html -->
-<:Head>
+<svelte:head>
 	<title>Welcome</title>
-</:Head>
+</svelte:head>
 
 <h1>Hello and welcome to my site!</h1>
 ```
@@ -24,9 +24,9 @@ A file called either `routes/about.html` or `routes/about/index.html` would corr
 
 ```html
 <!-- routes/about.html -->
-<:Head>
+<svelte:head>
 	<title>About</title>
-</:Head>
+</svelte:head>
 
 <h1>About this site</h1>
 <p>TODO...</p>
@@ -36,14 +36,14 @@ Dynamic parameters are encoded using `[brackets]`. For example, here's how you c
 
 ```html
 <!-- routes/blog/[slug].html -->
-<:Head>
-	<title>{{post.title}}</title>
-</:Head>
+<svelte:head>
+	<title>{post.title}</title>
+</svelte:head>
 
-<h1>{{post.title}}</h1>
+<h1>{post.title}</h1>
 
 <div class='content'>
-	{{{post.html}}}
+	{@html post.html}
 </div>
 
 <script>
