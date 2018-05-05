@@ -2,24 +2,22 @@
 	<title>Learn Sapper</title>
 </svelte:head>
 
-<Layout page='guide'>
-	<div ref:container class='content'>
-		{#each sections as section}
-			<section id='{section.slug}'>
-				<h2>
-					{section.metadata.title}
-					<small><a href='https://github.com/sveltejs/sapper.svelte.technology/edit/master/content/guide/{section.file}'>edit this section</a></small>
-				</h2>
+<div ref:container class='content'>
+	{#each sections as section}
+		<section id='{section.slug}'>
+			<h2>
+				{section.metadata.title}
+				<small><a href='https://github.com/sveltejs/sapper.svelte.technology/edit/master/content/guide/{section.file}'>edit this section</a></small>
+			</h2>
 
-				{@html section.html}
-			</section>
-		{/each}
-	</div>
+			{@html section.html}
+		</section>
+	{/each}
+</div>
 
-	<div class='sidebar'>
-		<GuideContents ref:contents/>
-	</div>
-</Layout>
+<div class='sidebar'>
+	<GuideContents ref:contents/>
+</div>
 
 <style>
 	.sidebar {
@@ -223,29 +221,9 @@
 </style>
 
 <script>
-	import store from './_store.js';
-	import GuideContents from './_components/GuideContents.html';
-	import Layout from './_components/Layout.html';
-
-	function throttle(fn, ms) {
-		let blocked = false;
-
-		function unblock() {
-			blocked = false;
-		};
-
-		return function () {
-			if (blocked) return;
-			blocked = true;
-
-			fn();
-			setTimeout(unblock, ms);
-		};
-	}
-
 	export default {
-		store() {
-			return store;
+		components: {
+			GuideContents: '../components/GuideContents.html'
 		},
 
 		preload() {
@@ -306,11 +284,6 @@
 
 			onresize();
 			onscroll();
-		},
-
-		components: {
-			GuideContents,
-			Layout
 		}
 	};
 </script>

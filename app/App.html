@@ -1,7 +1,11 @@
-<Nav {page}/>
+<Nav page={
+	props.path === '/' ? 'home' :
+	props.path === '/guide' ? 'guide' :
+	null
+}/>
 
 <div>
-	<slot></slot>
+	<svelte:component this={Page} {...props}/>
 </div>
 
 <style>
@@ -19,11 +23,9 @@
 </style>
 
 <script>
-	import Nav from './Nav.html';
-
 	export default {
 		components: {
-			Nav
+			Nav: '../components/Nav.html'
 		}
 	};
 </script>

@@ -2,24 +2,5 @@
 	<title>Sapper • Military-grade progressive web apps, powered by Svelte</title>
 </svelte:head>
 
-<Layout>
-	<h1>{error.message}</h1>
-	<p>Error code {status}</p>
-</Layout>
-
-<style>
-
-</style>
-
-<script>
-	import Layout from './_components/Layout.html';
-	import store from './_store.js';
-
-	export default {
-		components: {
-			Layout
-		},
-
-		store: () => store
-	};
-</script>
+<h1>{error.message}</h1>
+<p>Error code {status}</p>
