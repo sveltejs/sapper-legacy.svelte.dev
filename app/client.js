@@ -1,8 +1,23 @@
 import { init } from 'sapper/runtime.js';
 import { routes } from './manifest/client.js';
+import { Store } from 'svelte/store.js';
+import App from './App.html';
 
 // `routes` is an array of route objects injected by Sapper
-init(document.querySelector('#sapper'), routes);
+init({
+	target: document.querySelector('#sapper'),
+	App,
+	routes,
+	store: state => {
+		const store = new Store(state);
+
+		fetch(`guide-contents.json`).then(r => r.json()).then(guide_contents => {
+			store.set({ guide_contents });
+		});
+
+		return store;
+	}
+});
 
 if (navigator.serviceWorker && navigator.serviceWorker.controller) {
 	navigator.serviceWorker.controller.onstatechange = function(e) {

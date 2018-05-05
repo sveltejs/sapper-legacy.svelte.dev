@@ -84,3 +84,49 @@ If you have a service worker, you should also have a `webpack/service-worker.con
 #### Pages
 
 * Your `preload` functions should now use `this.fetch` instead of `fetch`. `this.fetch` allows you to make credentialled requests on the server, and means that you no longer need to create a `global.fetch` object in `app/server.js`.
+
+
+### 0.11 to 0.12
+
+In earlier versions, each page was a completely standalone component. Upon navigation, the entire page would be torn down and a new one created. Typically, each page would import a shared `<Layout>` component to achieve visual consistency.
+
+As of 0.12, this changes: we have a single `<App>` component, defined in `app/App.htnl`, which controls the rendering of the rest of the app. See [sapper-template](https://github.com/sveltejs/sapper-template/blob/master/app/App.html) for an example.
+
+This component is rendered with the following values:
+
+* `Page` — a component constructor for the current page
+* `props` — an object with `params`, `query`, and any data returned from the page's `preload` function, if any
+* `preloading` — `true` during preload, `false` otherwise. Useful for showing progress indicators
+
+Sapper needs to know about your app component. To that end, you will need to modify your `app/server.js` and `app/client.js`:
+
+```js
+// app/server.js
+import polka from 'polka';
+import sapper from 'sapper';
+import serve from 'serve-static';
+import { routes } from './manifest/server.js';
+import App from './App.html';
+
+polka()
+	.use(
+		serve('assets'),
+		sapper({ App, routes })
+	)
+	.listen(process.env.PORT);
+```
+
+```js
+// app/client.js
+import { init } from 'sapper/runtime.js';
+import { routes } from './manifest/client.js';
+import App from './App.html';
+
+init({
+	target: document.querySelector('#sapper'),
+	routes,
+	App
+});
+```
+
+Once your `App.htnl` has been created and your server and client apps updated, you can remove any `<Layout>` components from your individual pages.
