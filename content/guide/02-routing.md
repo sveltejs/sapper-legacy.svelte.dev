@@ -109,11 +109,8 @@ You could do this with two separate pages — `routes/settings.html` (or `routes
 
 
 
-### Error pages
+### Error page
 
-In addition to regular pages, there are two 'special' pages — `routes/4xx.html` and `routes/5xx.html`. These will be shown when an error occurs while rendering a page.
+In addition to regular pages, there is a 'special' page that Sapper expects to find — `routes/_error.html`. This will be shown when an error occurs while rendering a page.
 
-The `error` object is made available to the template.
-
-* **4xx.html** is shown when an error is encountered with an HTTP status code [between 400 and 499](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_errors), such as 404 Not Found
-* **5xx.html** is shown for [all other errors](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_errors). In practice, this means 500 Internal Server Error.
+The `error` object is made available to the template along with the HTTP `status` code.

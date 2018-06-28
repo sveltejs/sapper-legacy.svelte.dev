@@ -54,12 +54,9 @@ import { assets, shell, timestamp, routes } from './manifest/service-worker.js';
 
 In previous versions, we had `templates/2xx.html`, `templates/4xx.html` and `templates/5xx.html`. Now, we have a single template, `app/template.html`, which should look like your old `templates/2xx.html`.
 
-For handling error states, we have two new 'special' routes:
+For handling error states, we have a 'special' route: `routes/_error.html`.
 
-* `routes/4xx.html` — for 4xx-range errors, like 404 Not Found
-* `routes/5xx.html` — for all other errors
-
-These components are just like any other pages, except that they'll get rendered whenever those error states are reached. The components have access to `status` and `error` values.
+This page is just like any other, except that it will get rendered whenever an error states is reached. The component has access to `status` and `error` values.
 
 Note that you can now use `this.error(statusCode, error)` inside your `preload` functions.
 
@@ -132,3 +129,8 @@ import { routes } from './manifest/client.js';
 ```
 
 Once your `App.html` has been created and your server and client apps updated, you can remove any `<Layout>` components from your individual pages.
+
+
+## 0.13 to 0.14
+
+The `4xx.html` and `5xx.html` error pages have been replaced with a single page, `_error.html`. In addition to the regular `params`, `query` and `path` props, it receives `status` and `error`.
