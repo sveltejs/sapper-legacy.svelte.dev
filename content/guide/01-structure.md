@@ -20,8 +20,8 @@ If you take a look inside the [sapper-template](https://github.com/sveltejs/sapp
 │ ├ # your files here
 ├ routes
 │ ├ # your routes here
-│ ├ 4xx.html
-│ └ 5xx.html
+│ ├ _error.html
+│ └ index.html
 ├ webpack
 │ ├ client.config.js
 │ ├ server.config.js
