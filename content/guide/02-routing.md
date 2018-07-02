@@ -114,3 +114,13 @@ You could do this with two separate pages — `routes/settings.html` (or `routes
 In addition to regular pages, there is a 'special' page that Sapper expects to find — `routes/_error.html`. This will be shown when an error occurs while rendering a page.
 
 The `error` object is made available to the template along with the HTTP `status` code.
+
+
+
+### Regexes in routes
+
+You can use a subset of regular expressions to qualify route parameters, by placing them in parentheses after the parameter name.
+
+For example, `routes/items/[id([0-9]+)].html` would only match numeric IDs — `/items/123` would match, but `/items/xyz` would not.
+
+Because of technical limitations, the following characters cannot be used: `/`, `\`, `?`, `:`, `(` and `)`.
