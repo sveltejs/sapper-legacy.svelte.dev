@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Sapper • Military-grade progressive web apps, powered by Svelte</title>
+	<title>Sapper • Rugged web apps, powered by Svelte</title>
 </svelte:head>
 
 <div class='hero'>
@@ -9,10 +9,10 @@
 	</div>
 
 	<div class='right'>
-		<h2>Military-grade progressive web apps, powered by Svelte</h2>
+		<h2>Rugged web apps, powered by Svelte</h2>
 		<ul>
 			<li><strong>Beautiful development experience, inspired by Next.js.</strong> Declarative routing, hot-module replacement, scoped styles</li>
-			<li><strong>Ridiculous performance.</strong> Svelte compiles your components down to tiny, blazing fast JavaScript modules</li>
+			<li><strong>Ridiculous performance.</strong> Svelte compiles your components down to tiny, efficient JavaScript modules</li>
 			<li><strong>Modern best practices baked in.</strong> Code-splitting, server-side rendering, offline support</li>
 		</ul>
 
@@ -90,7 +90,7 @@
 		font-weight: 300;
 		display: block;
 		margin: 0 0 4rem 0;
-		max-width: 14em;
+		max-width: 10em;
 	}
 
 	.learn {
@@ -125,11 +125,16 @@
 
 		h2 {
 			font-size: 2em;
-			max-width: none;
 		}
 
 		li {
 			font-size: 1.2em;
+		}
+	}
+
+	@media (min-width: 550px) {
+		h2 {
+			max-width: none;
 		}
 	}
 
@@ -166,7 +171,7 @@
 			font-size: 2.6em;
 			line-height: 1.2;
 			margin: 0 0 2rem 0;
-			max-width: 14em;
+			max-width: 10em;
 		}
 	}
 
