@@ -96,16 +96,8 @@ export async function get(req, res, next) {
 There are three simple rules for naming the files that define your routes:
 
 * A file called `routes/about.html` corresponds to the `/about` route. A file called `routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to `preload`
-* The file `routes/index.html` (or `routes/index.js`) corresponds to the root of your app. `routes/about/index.html` is treated the same as `routes/about.html`.
+* The file `routes/index.html` corresponds to the root of your app. `routes/about/index.html` is treated the same as `routes/about.html`.
 * Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
-
-
-
-### Subroutes
-
-Suppose you have a route called `/settings` and a series of subroutes such as `/settings/profile` and `/settings/notifications`.
-
-You could do this with two separate pages — `routes/settings.html` (or `routes/settings/index.html`) and `routes/settings/[submenu].html`, but it's likely that they'll share a lot of code. If there's no `routes/settings.html` file, then `routes/settings/[submenu].html` will match `/settings` as well as subroutes like `/settings/profile`, but the value of `params.submenu` will be `undefined` in the first case.
 
 
 
