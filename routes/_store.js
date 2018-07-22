@@ -5,7 +5,7 @@ const store = new Store({
 });
 
 if (process.browser) {
-	fetch(`guide-contents.json`).then(r => r.json()).then(guide_contents => {
+	fetch(`guide/contents.json`).then(r => r.json()).then(guide_contents => {
 		store.set({ guide_contents });
 	});
 }
