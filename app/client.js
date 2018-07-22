@@ -1,19 +1,12 @@
 import { init } from 'sapper/runtime.js';
-import { routes } from './manifest/client.js';
+import { manifest } from './manifest/client.js';
 import { Store } from 'svelte/store.js';
 
-// `routes` is an array of route objects injected by Sapper
 init({
 	target: document.querySelector('#sapper'),
-	routes,
+	manifest,
 	store: state => {
-		const store = new Store(state);
-
-		fetch(`guide/contents.json`).then(r => r.json()).then(guide_contents => {
-			store.set({ guide_contents });
-		});
-
-		return store;
+		return new Store(state);
 	}
 });
 
