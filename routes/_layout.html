@@ -1,11 +1,7 @@
-<Nav page={
-	props.path === '/' ? 'home' :
-	props.path === '/guide' ? 'guide' :
-	null
-}/>
+<Nav segment={child.segment}/>
 
 <div>
-	<svelte:component this={Page} {...props}/>
+	<svelte:component this={child.component} {...child.props}/>
 </div>
 
 <style>

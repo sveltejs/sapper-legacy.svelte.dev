@@ -134,3 +134,63 @@ Once your `App.html` has been created and your server and client apps updated, y
 ## 0.13 to 0.14
 
 The `4xx.html` and `5xx.html` error pages have been replaced with a single page, `_error.html`. In addition to the regular `params`, `query` and `path` props, it receives `status` and `error`.
+
+
+## 0.14 to 0.15
+
+This release changed how routing is handled, resulting in a number of changes.
+
+Instead of a single `App.html` component, you can place `_layout.html` components in any directory under `routes`. You should move `app/App.html` to `routes/_layout.html` and modify it like so:
+
+```diff
+-<!-- app/App.html -->
++<!-- routes/_layout.html -->
+
+<nav>
+	<!-- top-level navigation -->
+</nav>
+
+-<svelte:component this={Page} {...props}/>
++<svelte:component this={child.component} {...child.props}/>
+```
+
+You will then need to remove `App` from your client and server entry points, and replace `routes` with `manifest`:
+
+```diff
+// app/client.js
+import { init } from 'sapper/runtime.js';
+-import { routes } from './manifest/client.js';
+-import App from './App.html';
++import { manifest } from './manifest/client.js';
+
+init({
+	target: document.querySelector('#sapper'),
+-	routes,
+-	App
++	manifest
+});
+```
+
+```diff
+import sirv from 'sirv';
+import polka from 'polka';
+import sapper from 'sapper';
+import compression from 'compression';
+-import { routes } from './manifest/server.js';
+-import App from './App.html';
++import { manifest } from './manifest/server.js';
+
+polka()
+	.use(
+		compression({ threshold: 0 }),
+		sirv('assets'),
+-		sapper({ routes, App })
++		sapper({ manifest })
+	)
+	.listen(process.env.PORT)
+	.catch(err => {
+		console.log('error', err);
+	});
+```
+
+`preload` functions no longer take the entire request object on the server; instead, they receive the same argument as on the client.

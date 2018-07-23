@@ -23,33 +23,13 @@ Your `preload` function is optional; whether or not you include it, the componen
 
 ### Argument
 
-When `preload` runs in the **browser**, the argument is a `{ params, query }` object where `params` is derived from the URL and the route filename, and `query` is an object of values in the query string.
+The `preload` function receives a `{ params, query }` object where `params` is derived from the URL and the route filename, and `query` is an object of values in the query string.
 
 So if the example above was `routes/blog/[slug].html` and the URL was `/blog/some-post?foo=bar&baz`, the following would be true:
 
 * `params.slug === 'some-post'`
 * `query.foo === 'bar'`
 * `query.baz === true`
-
-When `preload` runs on the **server**, the argument is the entire `Request` object, which includes `params` and `query`. This is useful if you're using session middleware such as [express-session](https://github.com/expressjs/session) as it allows you to render a page for a specific user, for example:
-
-```html
-<script>
-	import * as auth from './_auth.js'; // handles client-side auth
-
-	export default {
-		preload({ params, session }) {
-			// on the server, use the session object
-			// on the client, maintain auth state separately
-			const user = session ? session.user : auth.user;
-
-			return {
-				user
-			};
-		}
-	};
-</script>
-```
 
 
 ### Return value

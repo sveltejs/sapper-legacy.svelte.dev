@@ -20,7 +20,7 @@ You don't need to know Svelte to understand the rest of this guide, but it will 
 
 In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as *sappers*.
 
-For web developers, the stakes are generally lower than for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for **S**velte **app** mak**er**, is your courageous and dutiful ally.
+For web developers, the stakes are generally lower than for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <b>S</b>velte <b>app</b> mak<b>er</b>, is your courageous and dutiful ally.
 
 
 ### Comparison with Next.js
