@@ -69,7 +69,7 @@ Dynamic parameters are encoded using `[brackets]`. For example, here's how you c
 
 ### Server routes
 
-Server routes are modules written in `.js` files that export functions corresponding to HTTP methods. Each function receives Express `request` and `response` objects as arguments, plus a `next` function. This is useful for creating a JSON API. For example, here's how you could create an endpoint that served the blog page above:
+Server routes are modules written in `.js` files that export functions corresponding to HTTP methods. Each function receives HTTP `request` and `response` objects as arguments, plus a `next` function. This is useful for creating a JSON API. For example, here's how you could create an endpoint that served the blog page above:
 
 ```js
 // routes/blog/[slug].json.js
@@ -92,6 +92,9 @@ export async function get(req, res, next) {
 ```
 
 > `delete` is a reserved word in JavaScript. To handle DELETE requests, export a function called `del` instead.
+
+
+### File naming rules
 
 There are three simple rules for naming the files that define your routes:
 
