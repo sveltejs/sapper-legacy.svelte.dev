@@ -131,12 +131,12 @@ import { routes } from './manifest/client.js';
 Once your `App.html` has been created and your server and client apps updated, you can remove any `<Layout>` components from your individual pages.
 
 
-## 0.13 to 0.14
+### 0.13 to 0.14
 
 The `4xx.html` and `5xx.html` error pages have been replaced with a single page, `_error.html`. In addition to the regular `params`, `query` and `path` props, it receives `status` and `error`.
 
 
-## 0.14 to 0.15
+### 0.14 to 0.15
 
 This release changed how routing is handled, resulting in a number of changes.
 
