@@ -146,9 +146,8 @@ Instead of a single `App.html` component, you can place `_layout.html` component
 -<!-- app/App.html -->
 +<!-- routes/_layout.html -->
 
-<nav>
-	<!-- top-level navigation -->
-</nav>
+-<Nav path={props.path}/>
++<Nav segment={child.segment}/>
 
 -<svelte:component this={Page} {...props}/>
 +<svelte:component this={child.component} {...child.props}/>
@@ -172,6 +171,7 @@ init({
 ```
 
 ```diff
+// app/server.js
 import sirv from 'sirv';
 import polka from 'polka';
 import sapper from 'sapper';
