@@ -83,7 +83,6 @@ export async function get(req, res, next) {
 	const post = await db.get(slug);
 
 	if (post !== null) {
-		res.set('Content-Type', 'application/json');
 		res.end(JSON.stringify(post));
 	} else {
 		next();
