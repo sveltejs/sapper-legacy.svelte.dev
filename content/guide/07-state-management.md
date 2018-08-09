@@ -12,7 +12,7 @@ Whereas the client-side app has a single Store instance that lasts as long as th
 
 ```js
 // app/server.js
-const { Store } = require('svelte/store.js');
+import { Store } from 'svelte/store.js';
 
 express() // or Polka, or a similar framework
 	.use(
@@ -20,7 +20,7 @@ express() // or Polka, or a similar framework
 		serve('assets'),
 		authenticationMiddleware(),
 		sapper({
-			routes,
+			manifest,
 			store: request => {
 				return new Store({
 					user: request.user
@@ -43,9 +43,11 @@ This time around, we're creating a single store that is attached to each page as
 ```js
 import { init } from 'sapper/runtime.js';
 import { Store } from 'svelte/store.js';
-import { routes } from './manifest/client.js';
+import { manifest } from './manifest/client.js';
 
-init(document.querySelector('#sapper'), routes, {
+init({
+	target: document.querySelector('#sapper'),
+	manifest,
 	store: data => {
 		// `data` is whatever was in the server-side store
 		return new Store(data);
