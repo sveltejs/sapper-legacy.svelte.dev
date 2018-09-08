@@ -20,6 +20,18 @@ As seen in the [routing](guide#routing) section, top-level page components can h
 
 Your `preload` function is optional; whether or not you include it, the component will have access to the `query` and `params` objects, on top of any [default data](https://svelte.technology/guide#default-data) specified with a `data` property.
 
+The top-level `_layout.html` component is rendered with a `preloading` value: `true` during preloading, `false` otherwise. This value is useful to display a loading spinner or otherwise indicate that a navigation is in progress.
+
+```html
+<!-- routes/_layout.html -->
+{#if preloading}
+  <div>Loading...</div>
+{/if}
+
+<svelte:component this={child.component} {...child.props}/>
+```
+
+The `preloading` value is only set during page navigations. Prefetching (see [below](guide#prefetching)) does not set `preloading` since it is intended to be transparent to the user.
 
 ### Argument
 
@@ -37,8 +49,6 @@ So if the example above was `routes/blog/[slug].html` and the URL was `/blog/som
 If you return a Promise from `preload`, the page will delay rendering until the promise resolves. You can also return a plain object.
 
 When Sapper renders a page on the server, it will attempt to serialize the resolved value (using [devalue](https://github.com/Rich-Harris/devalue)) and include it on the page, so that the client doesn't also need to call `preload` upon initialization. Serialization will fail if the value includes functions or custom classes (cyclical and repeated references are fine, as are built-ins like `Date`, `Map`, `Set` and `RegExp`).
-
-
 
 ### Context
 
