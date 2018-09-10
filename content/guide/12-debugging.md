@@ -10,10 +10,10 @@ npm install -g ndb
 
 ...then run Sapper:
 
-```
+```bash
 ndb npm run dev
 ```
 
 > This assumes that `npm run dev` runs `sapper dev`. You can also run Sapper via [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner), as in `ndb npx sapper dev`.
 
-Note that you may not see any terminal output for a few seconds while ndb starts up. 
+Note that you may not see any terminal output for a few seconds while ndb starts up.
