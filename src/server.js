@@ -4,7 +4,7 @@ import sapper from 'sapper';
 import serve from 'serve-static';
 import { Store } from 'svelte/store.js';
 import { manifest } from './manifest/server.js';
-import guide_sections from '../routes/guide/_sections.js';
+import guide_sections from './routes/guide/_sections.js';
 
 const guide_contents = guide_sections.map(section => {
 	return {
@@ -17,7 +17,7 @@ const guide_contents = guide_sections.map(section => {
 express()
 	.use(
 		compression({ threshold: 0 }),
-		serve('assets'),
+		serve('static'),
 		sapper({
 			manifest,
 			store: () => new Store({
