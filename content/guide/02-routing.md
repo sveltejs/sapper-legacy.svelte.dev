@@ -9,7 +9,7 @@ As we've seen, there are two types of route in Sapper — pages, and server rout
 
 Pages are Svelte components written in `.html` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel.
 
-The filename determines the route. For example, `routes/index.html` is the root of your site:
+The filename determines the route. For example, `src/routes/index.html` is the root of your site:
 
 ```html
 <!-- routes/index.html -->
@@ -20,7 +20,7 @@ The filename determines the route. For example, `routes/index.html` is the root 
 <h1>Hello and welcome to my site!</h1>
 ```
 
-A file called either `routes/about.html` or `routes/about/index.html` would correspond to the `/about` route:
+A file called either `src/routes/about.html` or `src/routes/about/index.html` would correspond to the `/about` route:
 
 ```html
 <!-- routes/about.html -->
@@ -98,15 +98,15 @@ export async function get(req, res, next) {
 
 There are three simple rules for naming the files that define your routes:
 
-* A file called `routes/about.html` corresponds to the `/about` route. A file called `routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to `preload`
-* The file `routes/index.html` corresponds to the root of your app. `routes/about/index.html` is treated the same as `routes/about.html`.
-* Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
+* A file called `src/routes/about.html` corresponds to the `/about` route. A file called `src/routes/blog/[slug].html` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to `preload`
+* The file `src/routes/index.html` corresponds to the root of your app. `src/routes/about/index.html` is treated the same as `src/routes/about.html`.
+* Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
 
 
 
 ### Error page
 
-In addition to regular pages, there is a 'special' page that Sapper expects to find — `routes/_error.html`. This will be shown when an error occurs while rendering a page.
+In addition to regular pages, there is a 'special' page that Sapper expects to find — `src/routes/_error.html`. This will be shown when an error occurs while rendering a page.
 
 The `error` object is made available to the template along with the HTTP `status` code.
 
@@ -116,6 +116,6 @@ The `error` object is made available to the template along with the HTTP `status
 
 You can use a subset of regular expressions to qualify route parameters, by placing them in parentheses after the parameter name.
 
-For example, `routes/items/[id([0-9]+)].html` would only match numeric IDs — `/items/123` would match, but `/items/xyz` would not.
+For example, `src/routes/items/[id([0-9]+)].html` would only match numeric IDs — `/items/123` would match, but `/items/xyz` would not.
 
 Because of technical limitations, the following characters cannot be used: `/`, `\`, `?`, `:`, `(` and `)`.

@@ -37,7 +37,7 @@ The `preloading` value is only set during page navigations. Prefetching (see [be
 
 The `preload` function receives a `{ params, query }` object where `params` is derived from the URL and the route filename, and `query` is an object of values in the query string.
 
-So if the example above was `routes/blog/[slug].html` and the URL was `/blog/some-post?foo=bar&baz`, the following would be true:
+So if the example above was `src/routes/blog/[slug].html` and the URL was `/blog/some-post?foo=bar&baz`, the following would be true:
 
 * `params.slug === 'some-post'`
 * `query.foo === 'bar'`

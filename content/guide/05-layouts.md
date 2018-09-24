@@ -6,7 +6,7 @@ So far, we've treated pages as entirely standalone components — upon navigatio
 
 But in many apps, there are elements that should be visible on *every* page, such as top-level navigation or a footer. Instead of repeating them in every page, we can use *layout* components.
 
-To create a layout component that applies to every page, make a file called `routes/_layout.html`. The default layout component (the one that Sapper uses if you don't bring your own) looks like this...
+To create a layout component that applies to every page, make a file called `src/routes/_layout.html`. The default layout component (the one that Sapper uses if you don't bring your own) looks like this...
 
 ```html
 <svelte:component this={child.component} {...child.props}/>
