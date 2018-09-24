@@ -199,3 +199,11 @@ polka()
 ## 0.17 to 0.18
 
 The `sapper/webpack/config.js` file (required in the `webpack/*.config.js` files) is now `sapper/config/webpack.js`.
+
+
+## 0.20 to 0.21
+
+* The `app` directory is now `src`
+* The `routes` directory is now `src/routes`
+* The `assets` directory is now `static`
+* Instead of having three separate config files (`webpack/client.config.js`, `webpack/server.config.js` and `webpack/service-worker.config.js`), there is a single `webpack.config.js` file that exports `client`, `server` and `serviceworker` configs.
