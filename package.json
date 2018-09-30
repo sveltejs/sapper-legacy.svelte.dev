@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "start": "serve export",
+    "start": "serve __sapper__/export",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
@@ -12,7 +12,7 @@
     "prestage": "npm run build",
     "build": "sapper export",
     "deploy": "git-branch-is master && npm run stage && now alias",
-    "deploy:ci": "now export --token $NOW_TOKEN && now alias --token $NOW_TOKEN",
+    "deploy:ci": "now __sapper__/export --token $NOW_TOKEN && now alias --token $NOW_TOKEN",
     "predeploy:ci": "sapper export"
   },
   "dependencies": {
