@@ -8,8 +8,6 @@ Sapper allows you to *export* a static site with a single zero-config `sapper ex
 
 Static doesn't mean non-interactive — your Svelte components work exactly as they do normally, and you still get all the benefits of client-side routing and prefetching.
 
-> This is an experimental feature — if you encounter unexpected behaviour or feel that there are missing features, please raise an issue!
-
 
 ### sapper export
 
@@ -20,10 +18,10 @@ Inside your Sapper project, try this:
 npx sapper export
 ```
 
-This will create an `export` folder with a production-ready build of your site. You can launch it like so:
+This will create a `__sapper__/export` folder with a production-ready build of your site. You can launch it like so:
 
 ```bash
-npx serve export
+npx serve __sapper__/export
 ```
 
 Navigate to [localhost:5000](http://localhost:5000) (or whatever port `serve` picked), and verify that your site works as expected.
@@ -34,12 +32,12 @@ You can also add a script to your package.json...
 {
 	"scripts": {
 		...
-		"build": "sapper export"
+		"export": "sapper export"
 	}
 }
 ```
 
-...allowing you to `npm run build` your app.
+...allowing you to `npm run export` your app.
 
 
 ### How it works

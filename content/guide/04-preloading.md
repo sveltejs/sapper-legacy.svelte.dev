@@ -10,8 +10,8 @@ As seen in the [routing](guide#routing) section, top-level page components can h
 		preload({ params, query }) {
 			const { slug } = params;
 
-			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(post => {
-				return { post };
+			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(article => {
+				return { article };
 			});
 		}
 	};
@@ -23,7 +23,7 @@ Your `preload` function is optional; whether or not you include it, the componen
 The top-level `_layout.html` component is rendered with a `preloading` value: `true` during preloading, `false` otherwise. This value is useful to display a loading spinner or otherwise indicate that a navigation is in progress.
 
 ```html
-<!-- routes/_layout.html -->
+<!-- src/routes/_layout.html -->
 {#if preloading}
   <div>Loading...</div>
 {/if}
@@ -97,8 +97,8 @@ If the user navigated to `/blog/some-invalid-slug`, we would want to render a 40
 			return this.fetch(`blog/${slug}.json`).then(r => {
 				// assume all responses are either 200 or 404
 				if (r.status === 200) {
-					return r.json().then(post => {
-						return { post };
+					return r.json().then(article => {
+						return { article };
 					});
 				} else {
 					this.error(404, 'Not found');
@@ -120,7 +120,7 @@ You can abort rendering and redirect to a different location with `this.redirect
 <script>
 	export default {
 		preload({ params, session }) {
-			const user = this.store.get('user');
+			const { user } = this.store.get();
 
 			if (!user) {
 				return this.redirect(302, 'login');

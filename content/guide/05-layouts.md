@@ -15,7 +15,7 @@ To create a layout component that applies to every page, make a file called `src
 ...but we can add whatever markup, styles and behaviour we want. For example, let's add a nav bar:
 
 ```html
-<!-- routes/_layout.html -->
+<!-- src/routes/_layout.html -->
 <nav>
 	<a href=".">Home</a>
 	<a href="about">About</a>
@@ -28,17 +28,17 @@ To create a layout component that applies to every page, make a file called `src
 Sapper computes the `child` property based on which page the user has navigated to. If we create pages for `/`, `/about` and `/settings`...
 
 ```html
-<!-- routes/index.html -->
+<!-- src/routes/index.html -->
 <h1>Home</h1>
 ```
 
 ```html
-<!-- routes/about.html -->
+<!-- src/routes/about.html -->
 <h1>About</h1>
 ```
 
 ```html
-<!-- routes/settings.html -->
+<!-- src/routes/settings.html -->
 <h1>Settings</h1>
 ```
 
@@ -52,7 +52,7 @@ Suppose we don't just have a single `/settings` page, but instead have nested pa
 We can create a layout that only applies to pages below `/settings` (while inheriting the root layout with the top-level nav):
 
 ```html
-<!-- routes/settings/_layout.html -->
+<!-- src/routes/settings/_layout.html -->
 <h1>Settings</h1>
 
 <div class="submenu">
@@ -87,7 +87,7 @@ In addition to `child.component` and `child.props`, there is a `child.segment` p
 Like page components, layout components can use `preload`:
 
 ```html
-<!-- routes/foo/_layout.html -->
+<!-- src/routes/foo/_layout.html -->
 <svelte:component
 	this={child.component}
 	someData={thingAllChildComponentsWillNeed}
