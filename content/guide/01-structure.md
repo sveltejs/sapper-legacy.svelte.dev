@@ -31,7 +31,7 @@ You'll notice a few extra files and a `cypress` directory which relates to [test
 
 ### package.json
 
-Your package.json contains your app's dependencies, including `sapper`, and defines a number of scripts:
+Your package.json contains your app's dependencies and defines a number of scripts:
 
 * `npm run dev` — start the app in development mode, and watch source files for changes
 * `npm run build` — build the app in production mode
