@@ -30,7 +30,7 @@ function unescape(str) {
 	return String(str).replace(/&.+?;/g, match => unescaped[match] || match);
 }
 
-export default fs
+export default () => fs
 	.readdirSync(`content/guide`)
 	.filter(file => file[0] !== '.' && path.extname(file) === '.md')
 	.map(file => {

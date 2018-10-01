@@ -12,7 +12,7 @@ Pages are Svelte components written in `.html` files. When a user first visits t
 The filename determines the route. For example, `src/routes/index.html` is the root of your site:
 
 ```html
-<!-- routes/index.html -->
+<!-- src/routes/index.html -->
 <svelte:head>
 	<title>Welcome</title>
 </svelte:head>
@@ -23,7 +23,7 @@ The filename determines the route. For example, `src/routes/index.html` is the r
 A file called either `src/routes/about.html` or `src/routes/about/index.html` would correspond to the `/about` route:
 
 ```html
-<!-- routes/about.html -->
+<!-- src/routes/about.html -->
 <svelte:head>
 	<title>About</title>
 </svelte:head>
@@ -35,15 +35,15 @@ A file called either `src/routes/about.html` or `src/routes/about/index.html` wo
 Dynamic parameters are encoded using `[brackets]`. For example, here's how you could create a page that renders a blog post:
 
 ```html
-<!-- routes/blog/[slug].html -->
+<!-- src/routes/blog/[slug].html -->
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{article.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
+<h1>{article.title}</h1>
 
 <div class='content'>
-	{@html post.html}
+	{@html article.html}
 </div>
 
 <script>
@@ -56,8 +56,8 @@ Dynamic parameters are encoded using `[brackets]`. For example, here's how you c
 			// is called [slug].html
 			const { slug } = params;
 
-			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(post => {
-				return { post };
+			return this.fetch(`blog/${slug}.json`).then(r => r.json()).then(article => {
+				return { article };
 			});
 		}
 	};
@@ -80,11 +80,11 @@ export async function get(req, res, next) {
 	// is called [slug].json.js
 	const { slug } = req.params;
 
-	const post = await db.get(slug);
+	const article = await db.get(slug);
 
-	if (post !== null) {
+	if (article !== null) {
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify(post));
+		res.end(JSON.stringify(article));
 	} else {
 		next();
 	}

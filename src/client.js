@@ -1,10 +1,8 @@
-import { init } from 'sapper/runtime.js';
-import { manifest } from './manifest/client.js';
+import * as sapper from '../__sapper__/client.js';
 import { Store } from 'svelte/store.js';
 
-init({
+sapper.start({
 	target: document.querySelector('#sapper'),
-	manifest,
 	store: state => {
 		return new Store(state);
 	}
@@ -19,5 +17,3 @@ if (navigator.serviceWorker && navigator.serviceWorker.controller) {
 		}
 	};
 }
-
-if (module.hot) module.hot.accept();

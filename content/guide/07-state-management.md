@@ -19,8 +19,7 @@ express() // or Polka, or a similar framework
 		compression({ threshold: 0 }),
 		serve('assets'),
 		authenticationMiddleware(),
-		sapper({
-			manifest,
+		sapper.middleware({
 			store: request => {
 				return new Store({
 					user: request.user
@@ -41,13 +40,11 @@ Because we've supplied a `store` option, Sapper creates a new `Store` instance f
 This time around, we're creating a single store that is attached to each page as the user navigates around the app.
 
 ```js
-import { init } from 'sapper/runtime.js';
+import * as sapper from '../__sapper__/client.js';
 import { Store } from 'svelte/store.js';
-import { manifest } from './manifest/client.js';
 
-init({
+sapper.start({
 	target: document.querySelector('#sapper'),
-	manifest,
 	store: data => {
 		// `data` is whatever was in the server-side store
 		return new Store(data);

@@ -207,3 +207,53 @@ The `sapper/webpack/config.js` file (required in the `webpack/*.config.js` files
 * The `routes` directory is now `src/routes`
 * The `assets` directory is now `static`
 * Instead of having three separate config files (`webpack/client.config.js`, `webpack/server.config.js` and `webpack/service-worker.config.js`), there is a single `webpack.config.js` file that exports `client`, `server` and `serviceworker` configs.
+
+
+### 0.21 to 0.22
+
+Instead of importing middleware from the `sapper` package, or importing the client runtime from `sapper/runtime.js`, the app is *compiled into* the generated files:
+
+```diff
+// src/client.js
+-import { init } from 'sapper/runtime.js';
+-import { manifest } from './manifest/client.js';
++import * as sapper from '../__sapper__/client.js';
+
+-init({
++sapper.start({
+	target: document.querySelector('#sapper'),
+-	manifest
+});
+```
+
+```diff
+// src/server.js
+import sirv from 'sirv';
+import polka from 'polka';
+import compression from 'compression';
+-import sapper from 'sapper';
+-import { manifest } from './manifest/server.js';
++import * as sapper from '../__sapper__/server.js';
+
+const { PORT, NODE_ENV } = process.env;
+const dev = NODE_ENV === 'development';
+
+polka() // You can also use Express
+	.use(
+		compression({ threshold: 0 }),
+		sirv('static', { dev }),
+-		sapper({ manifest })
++		sapper.middleware()
+	)
+	.listen(PORT, err => {
+		if (err) console.log('error', err);
+	});
+```
+
+```diff
+// src/service-worker.js
+-import { assets, shell, routes, timestamp } from './manifest/service-worker.js';
++import { files, shell, routes, timestamp } from '../__sapper__/service-worker.js';
+```
+
+In addition, the default build and export directories are now `__sapper__/build` and `__sapper__/export` respectively.
