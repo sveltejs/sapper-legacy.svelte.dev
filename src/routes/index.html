@@ -2,178 +2,201 @@
 	<title>Sapper • Military-grade progressive web apps, powered by Svelte</title>
 </svelte:head>
 
-<div class='hero'>
-	<div class='left'>
-		<h1>Sapper</h1>
-
+<section class='container'>
+	<div class='logo'>
+		<Logo size={90} />
+		<h1>SAPPER</h1>
+		<h2>Military-grade progressive web apps<br />powered by Svelte</h2>
 	</div>
 
-	<div class='right'>
-		<h2>Military-grade progressive web apps, powered by Svelte</h2>
-		<ul>
-			<li><strong>Beautiful development experience, inspired by Next.js.</strong> Declarative routing, hot-module replacement, scoped styles</li>
-			<li><strong>Ridiculous performance.</strong> Svelte compiles your components down to tiny, blazing fast JavaScript modules</li>
-			<li><strong>Modern best practices baked in.</strong> Code-splitting, server-side rendering, offline support</li>
-		</ul>
+	<!-- possibly not the best solution - better use classes for button? -->
+	<a rel='prefetch' href='guide' class='learn-btn'>
+		<button class='bg-prime white'>Learn Sapper
+			<Icon name='arrow-right' /></button>
+	</a>
+</section>
 
-		<a rel='prefetch' class='learn' href='guide'>Learn Sapper</a>
-	</div>
-</div>
+<section class='container py0 align-c'>
+	<ul class='grid stretch'>
+		<li class='box bg-prime white'>
+			<Logo size={88} outer='none' inner='fill:none; stroke:white;' />
+			<h2 style='padding:2.4rem 0 0 0'>Superb development experience, inspired by Next.js</h2>
+			<p>Declarative routing, hot-module replacement, scoped styles</p>
+		</li>
+		<li class='box bg-flash white'>
+			<Logo size={88} outer='none' inner='fill:none; stroke:white;' />
+			<h2 style='padding:2.4rem 0 0 0'>Ridiculous performance</h2>
+			<p>Svelte compiles your components down to tiny, blazing fast JavaScript modules</p>
+		</li>
+		<li class='box bg-second white'>
+			<Logo size={88} outer='none' inner='fill:none; stroke:white;' />
+			<h2 style='padding:2.4rem 0 0 0'>Modern best practices baked in</h2>
+			<p>Code-splitting, server-side rendering, offline support</p>
+		</li>
+	</ul>
+</section>
+
+<section class='container'>
+	<ul class='grid half'>
+		<li>
+			<h2>The why-headline here</h2>
+			<p><b>Copyplat</b> – We captured the WHAT? above. A congenial Duo with svelte. Some facts, the reasons behind. Why is sapper better. Extract it in three sentences and some illustrations or charts.</p>
+		</li>
+		<li class='align-c cols-2'>
+			<Iso size={180} style='fill:var(--flash); stroke:var(--second)' />
+			<Iso size={180} style='fill:#ccc; stroke:var(--second)' />
+			<Iso size={180} style='fill:var(--prime); stroke:var(--second)' />
+			<p class='legend'><b>– fig 1 –</b><br />informative grafics here</p>
+		</li>
+	</ul>
+</section>
+
+<section class='container back-light'>
+	<ul class='grid'>
+		<li class='align-c cols-2'>
+			<Iso size={140} style='fill:var(--flash); stroke:var(--second)' />
+			<Iso size={140} style='fill:#ccc; stroke:var(--second)' />
+			<Iso size={140} style='fill:var(--prime); stroke:var(--second)' />
+			<p class='legend'><b>– fig 2 –</b><br />informative grafics here</p>
+		</li>
+		<li>
+			<h2>The how-headline here</h2>
+			<p>
+				<b>Copyplat</b> – How did sapper accomplish this? Why better than others?
+				Blindtext. Fera voluptatis debitis aut laut harum sitiandus. Ant labo. Nequod modisquia illabo. Nametur sequis ut
+				entiberibeat facerfe rovitatemqui beatis minvenis consequi quid quo et.
+			</p>
+		</li>
+	</ul>
+</section>
+
+<section class='container'>
+	<ul class='grid half'>
+		<li>
+			<h2>The benefits-headline here</h2>
+			<p>
+				<b>Copyplat</b> – Blindtext. Fera voluptatis debitis aut laut harum sitiandus. Ant labo. Nequod modisquia illabo. Nametur sequis ut entiberibeat facerfe rovitatemqui beatis minvenis consequi quid quo et.
+			</p>
+		</li>
+		<li class='align-c'>
+			<Iso size={120} style='fill:var(--flash); stroke:var(--second)' />
+			<Iso size={80} style='fill:#ccc; stroke:var(--second)' />
+			<Iso size={50} style='fill:var(--prime); stroke:var(--second)' />
+			<p class='legend'><b>– fig 3 –</b><br />informative grafics here</p>
+		</li>
+	</ul>
+</section>
+
+<section class='container bg-second'>
+	<h2 class='align-c white'
+		style='font-size:1.2rem; padding:8rem 0;'>more to come...
+	</h2>
+</section>
+
 
 <style>
-	.hero {
-		position: relative;
-		padding: 2em 1em;
-		/*background-color: #333;
-		color: #f4f4f4;*/
-		background-color: white;
-		color: #333;
-		clear: fix;
-		min-height: calc(100vh - 7em);
-		box-sizing: border-box;
+	.container {
+		padding: 10rem var(--side-page);
 	}
 
-	ul {
-		max-width: 32em;
-		padding: 0;
-		margin: 0 0 3em 0;
-	}
-
-	li {
-		position: relative;
+	.container ul {
 		list-style: none;
-		margin: 0 0 1em 0;
-		font-family: Rajdhani, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		color: #666;
 	}
 
-	li::before {
-		position: absolute;
-		content: '◆';
-		top: 0em;
-		left: -1.4em;
-		font-size: 0.8em;
-		/*color: rgba(255,255,255,0.4);*/
-		color: #ddd;
+	/* max line-length ~60 chars */
+	li:not(.box) > p {
+		max-width: var(--linemax)
 	}
 
-	strong {
-		font-family: Rajdhani, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		margin: 0 auto;
-		color: #333;
+	/* darken text for accesibility */
+	:global(.back-light) {
+		--text: hsl(36, 3%, 44%);
 	}
 
-	.left {
-		padding: 0 0 0 1em;
-	}
-
-	h1 {
-		display: block;
-		font-family: Rajdhani, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		color: rgb(16,94,16);
-		font-size: 24vw;
-		font-weight: 300;
-		line-height: 1;
-		margin: 0;
-		text-transform: uppercase;
-		padding: 0.5em 0 0 0;
-	}
-
-	.right {
-		padding: 0 0 0 1em;
-		margin: 0 0 2em 0;
-	}
-
-	h2 {
-		font-size: 7.2vw;
-		font-family: Rajdhani, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		font-weight: 300;
-		display: block;
-		margin: 0 0 4rem 0;
-		max-width: 14em;
-	}
-
-	.learn {
-		background-color: rgb(16,94,16);
-		color: white;
-		padding: 0.5em 2em;
-		border-radius: 0.2em;
-		line-height: 1;
-		font-family: Rajdhani, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		font-size: 1.2em;
-		font-weight: 800;
-		text-transform: uppercase;
-		width: calc(100% - 1em);
-		max-width: 16em;
-		display: block;
+	.logo {
 		text-align: center;
 	}
 
-	.learn:hover {
-		background-color: rgba(16,94,16,0.9);
+	.logo > :global(svg) {
+		position: relative;
 	}
 
-	@media (min-width: 480px) {
-		.left, .right {
-			max-width: 32em;
-			margin: 0 auto;
-		}
-
-		h1 {
-			font-size: 8em;
-		}
-
-		h2 {
-			font-size: 2em;
-			max-width: none;
-		}
-
-		li {
-			font-size: 1.2em;
-		}
+	.logo > h1 {
+		margin: 2rem 0;
+		font-size: 4.8rem;
+		color: var(--second);
 	}
 
-	@media (min-width: 1040px) {
-		.hero {
-			padding: 6em 1em 2em 1em;
-			max-width: 64em;
-			margin: 0 auto;
-		}
-
-		.left {
-			position: relative;
-			float: left;
-			width: 40%;
-			box-sizing: border-box;
-		}
-
-		.right {
-			position: relative;
-			float: left;
-			width: 60%;
-			box-sizing: border-box;
-		}
-
-		h1 {
-			position: relative;
-			right: 3rem;
-			top: 1.4rem;
-			font-size: 7.2em;
-			text-align: right;
-		}
-
-		h2 {
-			font-size: 2.6em;
-			line-height: 1.2;
-			margin: 0 0 2rem 0;
-			max-width: 14em;
-		}
+	.logo > h2 {
+		position: relative;
+		font-size: 1.7rem;
+		text-align: center;
+		animation: slow-fade-demo 6s var(--inout-cubic) infinite;
 	}
 
+	.learn-btn {
+		all: unset;
+  	cursor: pointer;
+		display: block;
+		margin-top: 4rem;
+		text-align: center;
+	}
+
+	.legend { padding-top: 4rem }
+
+	.box > svg {
+		margin: 1.6rem 0 2.4rem
+	}
+
+	.box > h2,
+	.box > p {
+		font-size: var(--h5);
+	}
+
+	h6 {
+		max-width: 25em;
+		padding: 2.4rem;
+		border-radius: var(--border-r);
+		font: 300 1rem/1.4 var(--font-mono);
+		text-align: center;
+	}
+
+	/* simple placeholder-animation */
+	@keyframes slow-fade-demo {
+		0%, 75%, 100% { opacity: 1 }
+		85% { opacity: 0 }
+	}
+
+	@media screen and (min-width: 870px) {
+		.logo {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.logo > h1 {
+			position: relative;
+			top: -.8rem;
+			font-size: 5.6rem;
+			margin: 2rem 2rem 0 1rem;
+		}
+
+		.logo > h2 {
+			top: .6rem;
+			text-align: left;
+		}
+	}
 </style>
 
 <script>
 	export default {
+		components: {
+			Icon: '../components/icon.html',
+			Logo: '../components/logo.html',
+			Iso: '../components/isometry.html',
+		},
+
 		oncreate() {
 			if ('caches' in window) {
 				// cache the guide, so we can navigate instantly
@@ -192,5 +215,5 @@
 					});
 			}
 		}
-	};
+	}
 </script>

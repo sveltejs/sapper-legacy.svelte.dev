@@ -1,6 +1,32 @@
 <svelte:head>
-	<title>Sapper • Military-grade progressive web apps, powered by Svelte</title>
+	<title>Sapper • {status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
-<p>{error.message}</p>
+<div class='center'>
+	<h1 class='prime'>{status}</h1>
+	<h3 class='second'>Upss. {error.message}</h3>
+</div>
+
+<!-- TO BE DONE... -->
+<style>
+	.center {
+	  display: flex;
+	  flex-wrap: wrap;
+	  align-content: center;
+	  align-items: center;
+	  width: 100vw;
+	  height: 100vh;
+	}
+
+	.center * {
+	  text-align: center;
+	  width: 100%;
+	}
+
+	h1 {
+	  margin: 0;
+	  font: 300 10vw / .8 var(--font-alt);
+	  letter-spacing: .6rem;
+	  text-transform: lowercase;
+	}
+</style>

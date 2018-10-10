@@ -2,11 +2,25 @@ import fs from 'fs';
 import path from 'path';
 import process_markdown from './_process_markdown.js';
 import marked from 'marked';
-import hljs from 'highlight.js';
+
+import prismjs from 'prismjs'; // prism-highlighter – smaller footprint [hljs: 192.5k]
+require('prismjs/components/prism-bash');
+require('prismjs/components/prism-diff');
+
+// console.log(Prism);
 
 const langs = {
 	'hidden-data': 'json',
 	'html-no-repl': 'html'
+};
+
+// map lang to prism-language-attr
+const prismLang = {
+  bash: 'bash',
+  html: 'markup',
+  js: 'javascript',
+  css: 'css',
+  diff: 'diff',
 };
 
 function btoa(str) {
@@ -38,15 +52,25 @@ export default () => fs
 
 		const { content, metadata } = process_markdown(markdown);
 
-		// syntax highlighting
+    // -----------------------------------------------
+    // edit vedam
+    // insert prism-highlighter (syntax highlighting)
+    // -----------------------------------------------
 		let uid = 0;
 		const highlighted = {};
 
 		const tweaked_content = content.replace(
 			/```([\w-]+)?\n([\s\S]+?)```/g,
 			(match, lang, code) => {
-				const { value } = hljs.highlight(lang, code);
-				highlighted[++uid] = value;
+				let plang = prismLang[lang];
+ 
+				const prismed = Prism.highlight(
+          code,
+          Prism.languages[plang],
+          lang,
+				);
+
+				highlighted[++uid] = [ plang, prismed ];
 
 				return `@@${uid}`;
 			}
@@ -54,7 +78,8 @@ export default () => fs
 
 		const html = marked(tweaked_content)
 			.replace(/<p>@@(\d+)<\/p>/g, (match, id) => {
-				return `<pre><code>${highlighted[id]}</code></pre>`;
+				let code = highlighted[id]
+				return `<pre class='language-${code[0]}'><code>${code[1]}</code></pre>`;
 			})
 			.replace(/^\t+/gm, match => match.split('\t').join('  '));
 
