@@ -8,7 +8,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "stage": "now export",
+    "stage": "now __sapper__/export",
     "prestage": "npm run build",
     "build": "sapper export",
     "deploy": "git-branch-is design && npm run stage && now alias",
