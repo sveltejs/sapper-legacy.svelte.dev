@@ -11,7 +11,7 @@
     "stage": "now export",
     "prestage": "npm run build",
     "build": "sapper export",
-    "deploy": "git-branch-is master && npm run stage && now alias",
+    "deploy": "git-branch-is design && npm run stage && now alias",
     "deploy:ci": "now __sapper__/export --token $NOW_TOKEN && now alias --token $NOW_TOKEN",
     "predeploy:ci": "sapper export"
   },
@@ -20,7 +20,6 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.2",
     "glob": "^7.1.2",
-    "highlight.js": "^9.12.0",
     "marked": "^0.4.0",
     "node-fetch": "^2.0.0",
     "npm-run-all": "^4.1.3",
