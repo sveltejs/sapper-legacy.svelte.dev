@@ -69,24 +69,6 @@
 			Icon: './icon.html',
 		},
 
-		//	------------------------------------------
-		//	TODO – smooth-scroll
-		//	must be something that makes more sense
-		//	this one is too annoying (area too tall)
-		//	maybe svelte-transitions are a solution?
-		//	unfortunately I have no idea how. For now.
-		//	------------------------------------------
-		// methods: {
-		// 	scrollTo(e, item) {
-		// 		e.preventDefault();
-		// 		let top = document.querySelector('#' + item).getBoundingClientRect().top;
-		// 		window.scrollTo({
-		// 			top,
-		// 			behavior: "smooth"
-		// 		});
-		// 	}
-		// },
-
 		oncreate() {
 			const onhashchange = _ => {
 				this.store.set({ activeGuideSection: window.location.hash.slice(1) });

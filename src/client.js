@@ -11,7 +11,7 @@ sapper.start({
 if (navigator.serviceWorker && navigator.serviceWorker.controller) {
 	navigator.serviceWorker.controller.onstatechange = function(e) {
 		if (e.target.state === 'redundant') {
-			import('./components/Toast.html').then(mod => {
+			import('./components/toaster.html').then(mod => {
 				mod.default.show();
 			});
 		}
