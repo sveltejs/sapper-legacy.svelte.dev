@@ -37,7 +37,7 @@
 .theme-default {
 	--back:       #ffffff;
 	--back-light: #f6f7f8;
-	--prime:      #009498;
+	--prime:      #00a8a8; /* hsl(180, 100%, 33%) */
 	--second:     #676778;
 	--flash:       #40b3ff;
 	--text:       #a19e9b; /* hsl(36, 3%, 62%) */
@@ -217,7 +217,7 @@ button[outline] {
 .linkify a:not(.open-in-repl) {
 	position: relative;
 	padding: 0 .4rem .1rem;
-	border-bottom: .1rem solid hsla(182, 100%, 30%, 0.5); /* muted --prime */
+	border-bottom: .1rem solid hsla(180, 100%, 33%, 0.5); /* muted --prime */
   user-select: none;
 	white-space: nowrap;
 	color: inherit;
