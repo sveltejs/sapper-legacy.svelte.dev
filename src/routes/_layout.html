@@ -1,27 +1,27 @@
-<Nav segment={child.segment}/>
+<!-- dev only -->
+<DebugCss style='bottom:4rem; right:3rem;' />
 
-<div>
-	<svelte:component this={child.component} {...child.props}/>
-</div>
+<InlineSvg />
+<Nav segment={child.segment} />
+<main role='main'>
+	<svelte:component this={child.component} {...child.props} />
+</main>
 
 <style>
-	div {
+	main {
 		position: relative;
-		padding: 3em 0 0 0;
+		margin: 0 auto;
+		padding: var(--nav-h) 0 0 0;
 		overflow-x: hidden;
-	}
-
-	@media (min-width: 768px) {
-		div {
-			padding: 4em 0 0 0;
-		}
 	}
 </style>
 
 <script>
 	export default {
 		components: {
-			Nav: '../components/Nav.html'
+			InlineSvg: '../components/inline-svg.html',
+			DebugCss: '../components/debug-css.html',
+			Nav: '../components/top-nav.html',
 		}
 	};
 </script>

@@ -8,10 +8,10 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "stage": "now export",
+    "stage": "now __sapper__/export",
     "prestage": "npm run build",
     "build": "sapper export",
-    "deploy": "git-branch-is master && npm run stage && now alias",
+    "deploy": "git-branch-is design && npm run stage && now alias",
     "deploy:ci": "now __sapper__/export --token $NOW_TOKEN && now alias --token $NOW_TOKEN",
     "predeploy:ci": "sapper export"
   },
@@ -20,10 +20,10 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.2",
     "glob": "^7.1.2",
-    "highlight.js": "^9.12.0",
     "marked": "^0.4.0",
     "node-fetch": "^2.0.0",
     "npm-run-all": "^4.1.3",
+    "prismjs": "^1.15.0",
     "serve": "^9.4.0",
     "serve-static": "^1.13.1",
     "svelte": "^2.9.11",
@@ -31,7 +31,7 @@
     "webpack": "^4.16.5"
   },
   "now": {
-    "alias": "sapper.svelte.technology"
+    "alias": "sapper-redesign"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
