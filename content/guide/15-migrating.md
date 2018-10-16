@@ -205,7 +205,7 @@ The `sapper/webpack/config.js` file (required in the `webpack/*.config.js` files
 
 * The `app` directory is now `src`
 * The `routes` directory is now `src/routes`
-* The `assets` directory is now `static`
+* The `assets` directory is now `static` (remember to update your `src/server.js` file to reflect this change as well)
 * Instead of having three separate config files (`webpack/client.config.js`, `webpack/server.config.js` and `webpack/service-worker.config.js`), there is a single `webpack.config.js` file that exports `client`, `server` and `serviceworker` configs.
 
 
