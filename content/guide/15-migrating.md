@@ -241,7 +241,8 @@ const dev = NODE_ENV === 'development';
 polka() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
-		sirv('static', { dev }),
+-		sirv('assets', { dev }),
++		sirv('static', { dev }),
 -		sapper({ manifest })
 +		sapper.middleware()
 	)
