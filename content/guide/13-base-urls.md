@@ -14,7 +14,7 @@ express() // or Polka, or a similar framework
     '/my-base-path', // <!-- add this line
     compression({ threshold: 0 }),
     serve('assets'),
-    sapper({ routes })
+    sapper.middleware()
   )
   .listen(process.env.PORT);
 ```

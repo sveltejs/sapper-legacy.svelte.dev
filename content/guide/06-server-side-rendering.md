@@ -20,8 +20,18 @@ The way to get around this is to use a dynamic import for your component, from w
 export default {
   async oncreate () {
     const MyComponent = await import('my-non-ssr-component')
+    this.set({ MyComponent })
   }
 }
+```
+
+You can then use your component within your app:
+
+```html
+<svelte:component this={MyComponent}
+  {prop1}
+  prop2="foo"
+/>
 ```
 
 > It might be the case that your component uses a default export, which actually ends up being an object with a property called `default`, in which case you would import it as `{ default: MyComponent }` rather than just `MyComponent`
