@@ -14,7 +14,7 @@ Since there is no `window` in a server-side environment like Sapper's, the actio
 ReferenceError: window is not defined
 ```
 
-The way to get around this is to use a dynamic import for your component, from within the `oncreate` hook (which is only called on the clientside), so that your import code is never called on the server.
+The way to get around this is to use a dynamic import for your component, from within the `oncreate` hook (which is only called on the client), so that your import code is never called on the server.
 
 ```js
 export default {
