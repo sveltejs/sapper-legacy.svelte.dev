@@ -37,8 +37,9 @@ For web developers, the stakes are generally lower than for combat engineers. Bu
 
 The easiest way to start building a Sapper app is to clone the [sapper-template](https://github.com/sveltejs/sapper-template) repo with [degit](https://github.com/Rich-Harris/degit):
 
-```js
-npx degit sveltejs/sapper-template my-app
+```
+npx degit sveltejs/sapper-template#rollup my-app
+# or: npx degit sveltejs/sapper-template#webpack my-app
 cd my-app
 npm install
 npm run dev
