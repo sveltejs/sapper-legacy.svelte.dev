@@ -7,6 +7,8 @@ Sapper apps run anywhere that supports Node 8 or higher.
 
 ### Deploying to Now
 
+Update: The instructions below are for the legacy Now v1 platform only and will not work on v2.
+
 We can very easily deploy our apps to [Now][]:
 
 ```bash
