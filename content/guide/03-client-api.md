@@ -8,7 +8,7 @@ The `__sapper__/client.js` module contains functions for controlling your app an
 ### start({ target, store? })
 
 * `target` — an element to render pages to
-* `store` — an function that, given some data, returns a Store object. See the [state management](https://sapper.svelte.technology/guide#state-management) section for more detail
+* `store` — an function that, given some data, returns a Store object. See the [state management](guide#state-management) section for more detail
 
 This configures the router and starts the application — listens for clicks on `<a>` elements, interacts with the `history` API, and renders and updates your Svelte components.
 

@@ -2,7 +2,7 @@
 title: State management
 ---
 
-Sapper integrates with the built-in Svelte store. If you're not familiar with Store, read the [Svelte state management](https://svelte.technology/guide#state-management) guide before continuing with this section.
+Sapper integrates with the built-in Svelte store. If you're not familiar with Store, read the [Svelte state management](https://v2.svelte.dev/guide#state-management) guide before continuing with this section.
 
 To use Store, you must integrate it with your server and client apps separately.
 

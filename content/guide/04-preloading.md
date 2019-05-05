@@ -18,7 +18,7 @@ As seen in the [routing](guide#routing) section, top-level page components can h
 </script>
 ```
 
-Your `preload` function is optional; whether or not you include it, the component will have access to the `query` and `params` objects, on top of any [default data](https://svelte.technology/guide#default-data) specified with a `data` property.
+Your `preload` function is optional; whether or not you include it, the component will have access to the `query` and `params` objects, on top of any [default data](https://v2.svelte.dev/guide#default-data) specified with a `data` property.
 
 The top-level `_layout.html` component is rendered with a `preloading` value: `true` during preloading, `false` otherwise. This value is useful to display a loading spinner or otherwise indicate that a navigation is in progress.
 

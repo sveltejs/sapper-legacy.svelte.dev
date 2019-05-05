@@ -8,12 +8,12 @@ title: Introduction
 
 Sapper is a framework for building extremely high-performance web apps. You're looking at one right now! There are two basic concepts:
 
-* Each page of your app is a [Svelte](https://svelte.technology) component
+* Each page of your app is a [Svelte](https://v2.svelte.dev) component
 * You create pages by adding files to the `src/routes` directory of your project. These will be server-rendered so that a user's first visit to your app is as fast as possible, then a client-side app takes over
 
 Building an app with all the modern best practices — code-splitting, offline support, server-rendered views with client-side hydration — is fiendishly complicated. Sapper does all the boring stuff for you so that you can get on with the creative part.
 
-You don't need to know Svelte to understand the rest of this guide, but it will help. In short, it's a UI framework that compiles your components to highly optimized vanilla JavaScript. Read the [introductory blog post](https://svelte.technology/blog/frameworks-without-the-framework) and the [guide](https://svelte.technology/guide) to learn more.
+You don't need to know Svelte to understand the rest of this guide, but it will help. In short, it's a UI framework that compiles your components to highly optimized vanilla JavaScript. Read the [introductory blog post](https://v2.svelte.dev/blog/frameworks-without-the-framework) and the [guide](https://v2.svelte.dev/guide) to learn more.
 
 
 ### Why the name?

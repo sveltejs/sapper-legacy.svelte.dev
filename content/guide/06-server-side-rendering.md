@@ -2,7 +2,7 @@
 title: Server-side rendering
 ---
 
-Sapper, by default, renders server-side first (SSR), and then re-mounts any dynamic elements on the client. Svelte provides [excellent support for this](https://svelte.technology/guide#server-side-rendering). This has benefits in performance and search engine indexing, among others, but comes with its own set of complexities.
+Sapper, by default, renders server-side first (SSR), and then re-mounts any dynamic elements on the client. Svelte provides [excellent support for this](https://v2.svelte.dev/guide#server-side-rendering). This has benefits in performance and search engine indexing, among others, but comes with its own set of complexities.
 
 ### Making a component SSR compatible
 
