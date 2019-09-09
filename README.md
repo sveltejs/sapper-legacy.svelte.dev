@@ -1,6 +1,10 @@
-# sapper.svelte.technology
+# sapper-legacy.svelte.dev
 
-The website for [Sapper](https://github.com/sveltejs/sapper), built with Sapper.
+The legacy website for [Sapper](https://github.com/sveltejs/sapper), built with Sapper.
+
+## Note
+
+**This is the repo for the old site.** The new site, for versions of Sapper compatible with Svelte v3, lives in [the `site` directory of the main Sapper repo](https://github.com/sveltejs/sapper/tree/master/site).
 
 ## Running locally
 
