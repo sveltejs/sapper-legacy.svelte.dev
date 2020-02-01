@@ -52,26 +52,25 @@ export default () => fs
 			}
 		);
 
-		const html = marked(tweaked_content)
+		const marked_html = marked(tweaked_content)
 			.replace(/<p>@@(\d+)<\/p>/g, (match, id) => {
 				return `<pre><code>${highlighted[id]}</code></pre>`;
 			})
 			.replace(/^\t+/gm, match => match.split('\t').join('  '));
 
+
 		const subsections = [];
 		const pattern = /<h3 id="(.+?)">(.+?)<\/h3>/g;
-		let match;
 
-		while ((match = pattern.exec(html))) {
-			const slug = match[1];
-			// const title = unescape(
-			// 	match[2].replace(/<\/?code>/g, '').replace(/\.(\w+)\W.*/, '.$1')
-			// );
-			const title = unescape(match[2]);
-
-			subsections.push({ slug, title });
-		}
-
+		const html = marked_html.replace(
+			pattern, 
+			(match, slug, title) => {
+				title = unescape(title);
+				subsections.push({ slug, title });
+				return `<h3 id="${slug}"><a class="anchor" href="guide#${slug}"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><use href="#anchor-icon" /></svg></a>${title}</h3>`
+			}
+		);
+	
 		return {
 			html,
 			metadata,
